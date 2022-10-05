@@ -1,0 +1,56 @@
+body{
+    margin: 3%;
+    width: auto;
+    height: 0%;
+}
+
+header{
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+input{
+    margin: 5px;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+button{
+    margin: 5px;
+    padding: 5px;
+    padding-right: 150px;
+    padding-left: 60px;
+    background-color: darkblue;
+    color: white;
+}
+
+.forecast{
+    background-color: #34373474;
+    margin: 1000px;
+    padding: 10px;
+    display: inline-flex;
+}
+
+.custom-row{
+   text-align: center;
+   position: relative; left: 20px; top: 20px;
+}
+
+.custom-section {
+   
+    text-align: center;
+   
+}
+
+@media screen and (max-width: 600px) {
+    .costum-row, .custom-section {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+

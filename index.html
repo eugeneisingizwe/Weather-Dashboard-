@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./main/assets/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <h1>Search for a City:</h1>
+    <div class="col-12 col-md-2">
+        <form id="form" class="mb-2">
+            <br>
+            <input id="search-input" class="form-input w-100" type="text" placeholder="City">
+            <br>
+            <button id="search-btn" class="btn btn-info btn-block">Search</button>
+            <div id="search-history"></div>
+        </form>
+    </div>
+ <!--City, today's date, and weather forecast section-->
+    <section class="col-md-9 custom-row">
+        <div id="forecast-contianer" class="p-2 mb-2"></div>
+    </section>
+    <!--Five day weather forecast section *must style the cards -->
+    <section class="col-md-9 custom-section">
+        <div id="fiveday-forecast" class="p-2"></div>
+    </section>
+    <script src="./main/assets/js/script.js"></script>
+</body>
+
+</html>
