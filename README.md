@@ -46,7 +46,7 @@ https://eugeneisingizwe.github.io/Weather-Dashboard-/
 
 The following image shows the web application's appearance and functionality:
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./main/image/screenshot.png)
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./main/image/127.0.0.1_5501_index.html.png)
 
 
 

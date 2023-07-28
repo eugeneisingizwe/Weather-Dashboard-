@@ -5,10 +5,9 @@ body{
 }
 
 header{
-    background-color: blue;
-    color: white;
     text-align: center;
     padding: 5px;
+    color: white;
 }
 
 input{
