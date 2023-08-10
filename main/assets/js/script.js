@@ -26,6 +26,8 @@ function handlesearchInput (event){
 
 function saveTolocalStorage(city){
 
+    console.log(city);
+
 
 //check to see if there is a duplicate in the search history
     if (searchHistory.indexOf(city) !== -1){
@@ -109,7 +111,7 @@ function getCityLatLon(city){
        ${data.name} ${today} <img src = "${iconURL}" alt="${data.weather[0].description}" /> </h2>
        <p>Temperature: ${data.main.temp} °F</p>
        <p>Humidity: ${data.main.humidity}\%</p>
-       <p>Wind Speed: ${data.wind.speed} MPH</p>
+       <p>Wind speed: ${data.wind.speed} MPH</p>
        `);
 
        $("#cityDetail").append(currentCityWeather);
@@ -117,31 +119,31 @@ function getCityLatLon(city){
        var lat = data.coord.lat;
         var lon = data.coord.lon;
 
-        var timeZoneQueryUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+        var timeZoneQueryUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
         fetch(timeZoneQueryUrl).then(function(response){
             return response.json();
         })
         .then(function(uviResponse){
          console.log(uviResponse);
          
-         var timeZone = uviResponse.timezone;
-         console.log(timeZone);
+         var feelsLike = uviResponse.main.feels_like;
+         console.log(feelsLike);
          var uvIndexP = $(`
-                <p>Time Zone: 
-                    <span id="uvIndexColor" class="px-2 py-2 rounded">${timeZone}</span>
+                <p>Feels Like: 
+                    <span id="uvIndexColor" class="px-2 py-2 rounded">${feelsLike} °F</span>
                 </p>
             `);
             $("#cityDetail").append(uvIndexP);
 
             fiveDayForecast(lat, lon);
 
-            if (timeZone >= 0 && timeZone <= 2) {
+            if (feelsLike >= 0 && feelsLike <= 2) {
                 $("#uvIndexColor").css("background-color", "#3EA72D").css("color", "white");
-            } else if (timeZone >= 3 && timeZone <= 5) {
+            } else if (feelsLike >= 3 && feelsLike <= 5) {
                 $("#uvIndexColor").css("background-color", "#FFF300");
-            } else if (timeZone >= 6 && timeZone <= 7) {
+            } else if (feelsLike >= 6 && feelsLike <= 7) {
                 $("#uvIndexColor").css("background-color", "#F18B00");
-            } else if (timeZone >= 8 && timeZone <= 10) {
+            } else if (feelsLike >= 8 && feelsLike <= 10) {
                 $("#uvIndexColor").css("background-color", "#E53210").css("color", "white");
             } else {
                 $("#uvIndexColor").css("background-color", "#B567A4").css("color", "white"); 
@@ -196,7 +198,7 @@ function getCityLatLon(city){
                      humidity : daysArr[i].main.humidity,
                 } ;
 
-            
+            console.log(cityInfo)
 
             //create element, add text content to the created elements, and set attrabute 
             var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
@@ -209,7 +211,7 @@ function getCityLatLon(city){
                 <h5>${currDate}</h5>
                             <p>${iconURL}</p>
                             <p>Temp: ${cityInfo.temp} °F</p>
-                            <p>Wind Speed: ${cityInfo.wind.speed} MPH</p>
+                            <p>Wind speed: ${cityInfo.wind} MPH</p>
                             <p>Humidity: ${cityInfo.humidity}\%</p>
                         </div>
                     </div>
